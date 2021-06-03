@@ -73,11 +73,14 @@ void loop() {
 //For Servo motor
  if (request.indexOf("/SERVO=ON") != -1)  { 
    digitalWrite(ledPin, HIGH); 
+   
     myservo.write(150);
+    value = HIGH; 
  } 
  if (request.indexOf("/SERVO=OFF") != -1)  { 
    digitalWrite(ledPin, LOW);
     myservo.write(0);
+    value = LOW; 
  } 
 
 
@@ -95,13 +98,13 @@ void loop() {
  client.print("<body style='background: #00979C'>"); 
  client.println("<h1 align ='center'>"); 
  client.println("<font-color='red'>"); 
- client.println("FoxLab"); 
+ client.println("Smart Car Tent using IOT"); 
  client.println("</font>"); 
  client.println("</h1>"); 
  client.println("<bg color ='#00ff00'>"); 
  client.println("</bg>"); 
  client.println("<p align ='center'>"); 
- client.print("Led is Now: "); 
+ client.print("Led/Servo is Now: "); 
  client.println("</p>"); 
  if(value == HIGH) { 
    client.println("<p align ='center'>"); 
@@ -115,8 +118,8 @@ void loop() {
  client.println("<br><br>"); 
  client.println("<p align ='center'>"); 
  client.println("<a  href=\"/LED=ON\"\"><button>Turn On </button></a>"); 
- client.println("<a  href=\"/LED=OFF\"\"><button>Turn Off </button></a><br />");  
- client.println("<a  href=\"/SERVO=ON\"\"><button>Turn On Servo </button></a>"); 
+ client.println("<a  href=\"/LED=OFF\"\"><button>Turn Off </button></a><br /><br/><br/>");  
+ client.println("<a  href=\"/SERVO=ON\"\"><button>Turn On Servo </button></a>&nbsp"); 
  client.println("<a  href=\"/SERVO=OFF\"\"><button>Turn Off Servo </button></a><br />");  
  client.println("</p>"); 
  client.println("<p>"); 
